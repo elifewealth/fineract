@@ -93,6 +93,7 @@ rat {
 	'**/licenses/**',
 	'**/*.md',
 	'**/MANIFEST.MF',
+        '**/build_and_deploy.sh',
 	'**/*.txt',
 	'**/*.log',
 	'**/fineractdev-eclipse-preferences.epf',

@@ -213,7 +213,7 @@ public class SelfServiceRegistrationWritePlatformServiceImpl implements SelfServ
     private void sendAuthorizationMail(SelfServiceRegistration selfServiceRegistration) {
         final String subject = "Authorization token ";
         final String body = "Hi  " + selfServiceRegistration.getFirstName() + "," + "\n" + "To create user, please use following details\n"
-                + "Request Id : " + selfServiceRegistration.getId() + "\n Authentication Token : "
+                + "Request Id : " + selfServiceRegistration.getId() + "\nAuthentication Token : "
                 + selfServiceRegistration.getAuthenticationToken();
 
         final EmailDetail emailDetail = new EmailDetail(subject, body, selfServiceRegistration.getEmail(),
