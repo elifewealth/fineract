@@ -159,16 +159,16 @@ public class SelfServiceRegistrationWritePlatformServiceImpl2 implements SelfSer
             baseDataValidator.reset().parameter(SelfServiceApiConstants2.mobileNumberParamName).value(mobileNumber).notNull()
                     .validatePhoneNumber();
         }
-        validateForDuplicateUsername(username);
+        validateForDuplicateUsername2(username);
 
-        throwExceptionIfValidationError(dataValidationErrors, accountNumber, firstName, lastName, mobileNumber, isEmailAuthenticationMode);
+        throwExceptionIfValidationError2(dataValidationErrors, accountNumber, firstName, lastName, mobileNumber, isEmailAuthenticationMode);
 
-        String authenticationToken = randomAuthorizationTokenGeneration();
+        String authenticationToken = randomAuthorizationTokenGeneration2();
         Client client = this.clientRepository.getClientByAccountNumber(accountNumber);
         SelfServiceRegistration2 selfServiceRegistration = SelfServiceRegistration2.instance(client, accountNumber, firstName, lastName,
                 mobileNumber, email, authenticationToken, username, password);
         this.selfServiceRegistrationRepository.saveAndFlush(selfServiceRegistration);
-        sendAuthorizationToken(selfServiceRegistration, isEmailAuthenticationMode);
+        sendAuthorizationToken2(selfServiceRegistration, isEmailAuthenticationMode);
         return selfServiceRegistration;
 
     }
@@ -185,9 +185,9 @@ public class SelfServiceRegistrationWritePlatformServiceImpl2 implements SelfSer
 
     public void sendAuthorizationToken2(SelfServiceRegistration2 selfServiceRegistration, Boolean isEmailAuthenticationMode) {
         if (isEmailAuthenticationMode) {
-            sendAuthorizationMail(selfServiceRegistration);
+            sendAuthorizationMail2(selfServiceRegistration);
         } else {
-            sendAuthorizationMessage(selfServiceRegistration);
+            sendAuthorizationMessage2(selfServiceRegistration);
         }
     }
 
@@ -224,7 +224,7 @@ public class SelfServiceRegistrationWritePlatformServiceImpl2 implements SelfSer
     private void throwExceptionIfValidationError2(final List<ApiParameterError> dataValidationErrors, String accountNumber,
             String firstName, String lastName, String mobileNumber, boolean isEmailAuthenticationMode) {
         if (!dataValidationErrors.isEmpty()) { throw new PlatformApiDataValidationException(dataValidationErrors); }
-        boolean isClientExist = this.selfServiceRegistrationReadPlatformService.isClientExist(accountNumber, firstName, lastName,
+        boolean isClientExist = this.selfServiceRegistrationReadPlatformService.isClientExist2(accountNumber, firstName, lastName,
                 mobileNumber, isEmailAuthenticationMode);
         if (!isClientExist) { throw new ClientNotFoundException(); }
     }
