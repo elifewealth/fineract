@@ -165,7 +165,7 @@ public class SelfServiceRegistrationWritePlatformServiceImpl2 implements SelfSer
 
         String authenticationToken = randomAuthorizationTokenGeneration2();
         Client client = this.clientRepository.getClientByAccountNumber(accountNumber);
-        SelfServiceRegistration2 selfServiceRegistration = SelfServiceRegistration2.instance(client, accountNumber, firstName, lastName,
+        SelfServiceRegistration2 selfServiceRegistration = SelfServiceRegistration2.instance2(client, accountNumber, firstName, lastName,
                 mobileNumber, email, authenticationToken, username, password);
         this.selfServiceRegistrationRepository.saveAndFlush(selfServiceRegistration);
         sendAuthorizationToken2(selfServiceRegistration, isEmailAuthenticationMode);
