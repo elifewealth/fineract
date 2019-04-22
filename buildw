@@ -1,0 +1,8 @@
+#!/bin/bash
+
+sudo /etc/init.d/tomcat7 stop
+./gradlew clean war
+sudo rm -r /usr/share/tomcat7/webapps/fineract
+sudo rm /usr/share/tomcat7/webapps/fineract.war
+sudo mv build/libs/fineract.war /usr/share/tomcat7/webapps
+sudo /etc/init.d/tomcat7 start
