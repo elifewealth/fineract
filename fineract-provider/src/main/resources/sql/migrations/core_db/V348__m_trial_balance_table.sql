@@ -16,15 +16,6 @@
 -- specific language governing permissions and limitations
 -- under the License.
 --
-CREATE TABLE `m_trial_balance` (
-	`office_id` BIGINT(20) NOT NULL,
-	`account_id` BIGINT(20) NOT NULL,
-	`amount` DECIMAL(19,6) NOT NULL,
-	`entry_date` DATE NOT NULL,
-	`created_date` DATE NULL,
-	`closing_balance` DECIMAL(19,6) NOT NULL
-);
-
 
 INSERT INTO `job` (`name`, `display_name`, `cron_expression`, `create_time`, `task_priority`, `group_name`, `previous_run_start_time`, `next_run_time`, `job_key`, `initializing_errorlog`, `is_active`, `currently_running`, `updates_allowed`, `scheduler_group`, `is_misfired`) VALUES ('Update Trial Balance Details', 'Update Trial Balance Details', '0 1 0 1/1 * ? *', now(), 5, NULL, NULL, NULL, NULL, NULL, 1, 0, 1, 0, 0);
 
