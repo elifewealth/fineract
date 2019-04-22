@@ -24,7 +24,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface SelfServiceRegistrationRepository2 extends JpaRepository<SelfServiceRegistration2, Long>,
-        JpaSpecificationExecutor<SelfServiceRegistration> {
+        JpaSpecificationExecutor<SelfServiceRegistration2> {
 
     public static final String FIND_BY_REQUEST_AND_AUTHENTICATION_TOKEN = "select request from SelfServiceRegistration request where request.id = :id and "
             + "request.authenticationToken = :authenticationToken";
