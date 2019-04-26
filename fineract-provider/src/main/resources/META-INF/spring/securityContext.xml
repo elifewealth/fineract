@@ -46,9 +46,9 @@
 				method="POST" requires-channel="https" />
 			<intercept-url pattern="/api/*/self/registration2/user" access="permitAll"
 				method="POST" requires-channel="https" />
-			<intercept-url pattern="/api/*/self/clients" access="permitAll"
-				method="POST" requires-channel="https" />
 			<intercept-url pattern="/api/*/clients" access="permitAll"
+				method="POST" requires-channel="https" />
+			<intercept-url pattern="/api/*/clients/selfregister" access="permitAll"
 				method="POST" requires-channel="https" />
 			<intercept-url pattern="/api/*/twofactor" access="isFullyAuthenticated()"
 						   method="GET" requires-channel="https" />
